@@ -7,11 +7,20 @@ int BBS::lsb() const {
 BBS::BBS(mpz_class n, mpz_class seed) : n(n), state(seed) {}
 
 void BBS::srand(mpz_class seed) {
-
+  state = seed;
 }
 
 mpz_class BBS::rand(int num) {
-
+  mpz_class b;
+  for (unsigned int i = 0; i < num; i ++) {
+    // Next state.
+    state = (state * state) % n;
+    // Set the bit.
+    int bi = lsb(state);
+    if (bi) mpz_setbit(b.get_mpz_t(), i);
+    else mpz_clearbit(b.get_mpz_t(), i);
+  }
+  return b;
 }
 
 // // Blum-Blum-Shub pseudo-random sequence generator
