@@ -1,7 +1,7 @@
 #include "bbs.hpp"
 
 int BBS::lsb() const {
-  return mpz_tstbit(state, 0);
+  return mpz_tstbit(state.get_mpz_t(), 0);
 }
 
 BBS::BBS(mpz_class n, mpz_class seed) : n(n), state(seed) {}
