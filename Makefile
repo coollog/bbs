@@ -15,8 +15,8 @@ all: $(TARGETS)
 tester: $(OBJ)
 	$(CXX) -o $@ $(OBJ) $(LIBS)
 
-bbs.o: osx/bbs.o
-	-cp osx/bbs.o .
+# bbs.o: osx/bbs.o
+# 	-cp osx/bbs.o .
 
 Blum.o: osx/Blum.o
 	-cp osx/Blum.o .
@@ -28,5 +28,5 @@ clean:
 # Dependencies ----------------------------------------------
 BBSTest.o: BBSTest.cpp Tester.hpp Blum.hpp bbs.hpp
 Tester.o: Tester.cpp Tester.hpp Blum.hpp bbs.hpp
-# bbs.o: bbs.cpp bbs.hpp
+bbs.o: bbs.cpp bbs.hpp
 # Blum.o: Blum.cpp Blum.hpp
