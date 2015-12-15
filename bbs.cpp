@@ -16,9 +16,9 @@ mpz_class BBS::rand(int num) {
     // Next state.
     state = (state * state) % n;
     // Set the bit.
-    int bi = lsb(state);
+    int bi = lsb();
     if (bi) mpz_setbit(b.get_mpz_t(), i);
-    else mpz_clearbit(b.get_mpz_t(), i);
+    else mpz_clrbit(b.get_mpz_t(), i);
   }
   return b;
 }
