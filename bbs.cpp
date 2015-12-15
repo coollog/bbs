@@ -12,7 +12,7 @@ void BBS::srand(mpz_class seed) {
 
 mpz_class BBS::rand(int num) {
   mpz_class b;
-  for (int i = num - 1; i >= 0; i ++) {
+  for (int i = num - 1; i >= 0; i --) {
     // Next state.
     state = (state * state) % n;
     // Set the bit.
