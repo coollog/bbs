@@ -13,20 +13,20 @@ TARGETS = tester
 all: $(TARGETS)
 
 tester: $(OBJ)
-	$(CXX) -o $@ $(OBJ) $(LIBS)
+  $(CXX) -o $@ $(OBJ) $(LIBS)
 
-bbs.o: linux/bbs.o
-	-cp linux/bbs.o .
+# bbs.o: linux/bbs.o
+#   -cp linux/bbs.o .
 
 Blum.o: linux/Blum.o
-	-cp linux/Blum.o .
+  -cp linux/Blum.o .
 
 # Delete .o and exe files and force recompilation. ----------
 clean:
-	rm -f *.o $(TARGETS)
+  rm -f *.o $(TARGETS)
 
 # Dependencies ----------------------------------------------
 BBSTest.o: BBSTest.cpp Tester.hpp Blum.hpp bbs.hpp
 Tester.o: Tester.cpp Tester.hpp Blum.hpp bbs.hpp
-# bbs.o: bbs.cpp bbs.hpp
+bbs.o: bbs.cpp bbs.hpp
 # Blum.o: Blum.cpp Blum.hpp
